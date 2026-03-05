@@ -1,350 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>My Portfolio</title>
+<title>Stranger Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-
+/* RESET */
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
+/* BODY & BACKGROUND */
 body{
-background:#0f172a;
-color:white;
+  color:white;
+  overflow-x:hidden;
+  background:radial-gradient(circle at center, #0c0c0c 0%, #1a0000 100%);
+  background-size:400% 400%;
+  animation:bgmove 15s infinite alternate;
 }
 
-/* NAVBAR */
+@keyframes bgmove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
 
+/* FOG / PARTICLES */
+.fog{
+  position:fixed;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  background: url('https://i.imgur.com/O0yV0ai.png') repeat;
+  opacity:0.2;
+  animation:fogmove 60s linear infinite;
+}
+
+@keyframes fogmove{
+  0%{background-position:0 0;}
+  100%{background-position:1000px 0;}
+}
+
+/* NAVIGATION */
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 60px;
-background:#020617;
-position:sticky;
-top:0;
-z-index:100;
+  display:flex;
+  justify-content:space-between;
+  padding:20px 60px;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
 nav h2{
-color:#38bdf8;
+  color:#ff1a1a;
+  text-shadow: 0 0 10px #ff1a1a;
 }
 
 nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+  transition:0.3s;
 }
 
 nav a:hover{
-color:#38bdf8;
+  color:#ff1a1a;
+  text-shadow:0 0 10px #ff1a1a;
 }
 
 /* HERO */
-
 .hero{
-height:90vh;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 60px;
-flex-wrap:wrap;
-}
-
-.hero-text{
-max-width:500px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:100px 60px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:1;
 }
 
 .hero h1{
-font-size:50px;
+  font-size:60px;
+  color:#ff1a1a;
+  text-shadow: 0 0 20px #ff1a1a, 0 0 40px #ff1a1a, 0 0 60px #ff1a1a;
 }
 
-.hero span{
-color:#38bdf8;
+.hero h1 span{
+  color:#38bdf8;
+  text-shadow: 0 0 20px #38bdf8, 0 0 40px #38bdf8, 0 0 60px #38bdf8;
 }
 
 .hero p{
-margin:20px 0;
-color:#cbd5f5;
+  margin-top:20px;
+  font-size:18px;
+  color:#ccc;
 }
 
 .hero img{
-width:240px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  width:250px;
+  border-radius:15px;
+  box-shadow:0 0 30px #38bdf8;
+  border:2px solid #ff1a1a;
 }
 
-/* BUTTON */
-
+/* BUTTONS */
 .btn{
-display:inline-block;
-padding:12px 25px;
-background:#38bdf8;
-color:black;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
+  background:#ff1a1a;
+  padding:12px 25px;
+  border-radius:8px;
+  text-decoration:none;
+  color:black;
+  font-weight:bold;
+  display:inline-block;
+  margin-top:20px;
+  box-shadow:0 0 15px #ff1a1a;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#38bdf8;
+  color:white;
+  box-shadow:0 0 20px #38bdf8;
 }
 
 /* SECTIONS */
-
 section{
-padding:80px 60px;
+  padding:80px 60px;
 }
 
 section h2{
-font-size:35px;
-margin-bottom:30px;
-color:#38bdf8;
+  color:#ff1a1a;
+  text-shadow: 0 0 10px #ff1a1a;
+  margin-bottom:20px;
 }
 
 /* PROJECTS */
-
 .projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
 }
 
 .card{
-background:#1e293b;
-border-radius:15px;
-padding:20px;
-transition:0.3s;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(8px);
+  padding:20px;
+  border-radius:15px;
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
 }
 
 .card:hover{
-transform:translateY(-10px);
-background:#334155;
+  transform:translateY(-10px);
+  box-shadow:0 0 30px #ff1a1a, 0 0 60px #38bdf8;
 }
 
 .card img{
-width:100%;
-border-radius:10px;
-margin-bottom:10px;
+  width:100%;
+  border-radius:10px;
 }
 
 /* BLOG */
-
 .blog{
-background:#1e293b;
-padding:20px;
-border-radius:12px;
-margin-bottom:15px;
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:15px;
+  box-shadow:0 0 20px #ff1a1a inset, 0 0 20px #38bdf8 inset;
 }
 
 /* CONTACT */
+.contact-info a{
+  color:#38bdf8;
+  text-decoration:none;
+  transition:0.3s;
+}
 
-.contact p{
-margin:10px 0;
+.contact-info a:hover{
+  color:#ff1a1a;
+  text-shadow:0 0 10px #ff1a1a;
 }
 
 /* FOOTER */
-
 footer{
-background:#020617;
-text-align:center;
-padding:30px;
+  text-align:center;
+  padding:40px;
+  background:rgba(0,0,0,0.5);
+  text-shadow:0 0 5px #ff1a1a;
 }
 
-/* ANIMATION */
-
-.fade{
-animation:fadeIn 2s;
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+  .hero img{
+    margin-top:30px;
+    width:200px;
+  }
 }
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-
 </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<div class="fog"></div>
 
 <nav>
-
-<h2>MyPortfolio</h2>
-
-<div>
-
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#blog">Blog</a>
-<a href="#contact">Contact</a>
-
-</div>
-
+  <h2>StrangerPortfolio</h2>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
-<!-- HERO -->
-
-<div class="hero fade">
-
-<div class="hero-text">
-
-<h1>Hello I'm <span>Angelo Coronel</span></h1>
-
-<p id="typing"></p>
-
-<a href="#projects" class="btn">View My Work</a>
-
+<div class="hero">
+  <div>
+    <h1>Hello, I'm <span>Angelo Coronel</span></h1>
+    <p>From HTML, CSS, and JavaScript to modern frameworks, I dive deep into the tech upside-down to bring ideas to life. 
+      I thrive on challenges, debugging mysteries, and turning complex problems into smooth, seamless experiences.</p>
+    <a href="#projects" class="btn">View Projects</a>
+  </div>
+  <img src="profile.jpg" alt="Profile">
 </div>
 
-<img src="profile.jpg">
-
-</div>
-
-<!-- ABOUT -->
-
-<section id="about" class="fade">
-
-<h2>About Me</h2>
-
-<p>
-I am a student passionate about web development and technology.
-I enjoy creating websites and improving my coding skills.
-This portfolio showcases my projects and my journey in learning
-HTML, CSS, and web design.
-</p>
-
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a student learning web development.
+    This portfolio showcases my projects and progress in building interactive websites and games.
+  </p>
 </section>
 
-<!-- PROJECTS -->
-
-<section id="projects" class="fade">
-
-<h2>Projects</h2>
-
-<div class="projects">
-
-<div class="card">
-
-<img src="project1.png">
-
-<h3>HTML Website</h3>
-
-<p>
-A simple game website built using HTML structure and content sections.
-</p>
-
-</div>
-
-<div class="card">
-
-<img src="project2.png">
-
-<h3>Web Layout</h3>
-
-<p>
-A layout design demonstrating structure and styling.
-</p>
-
-</div>
-
-<div class="card">
-
-<img src="project3.png">
-
-<h3>School Project</h3>
-
-<p>
-A project showcasing my learning in web development.
-</p>
-
-</div>
-
-</div>
-
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <img src="project1.png" alt="Project 1">
+      <h3>HTML Website</h3>
+      <p>A simple tic tac toe game that will test your skill.</p>
+    </div>
+    <div class="card">
+      <img src="project2.png" alt="Project 2">
+      <h3>Layout Design</h3>
+      <p>Demonstrating exact website.</p>
+    </div>
+    <div class="card">
+      <img src="project3.png" alt="Project 3">
+      <h3>School Project</h3>
+      <p>Showing samples that you will never win!.</p>
+    </div>
+  </div>
 </section>
 
-<!-- BLOG -->
-
-<section id="blog" class="fade">
-
-<h2>Blog</h2>
-
-<div class="blog">
-
-<h3>My Journey Learning HTML</h3>
-
-<p>
-Learning HTML helped me understand how websites are built and structured.
-It inspired me to continue learning programming and design.
-</p>
-
-</div>
-
-<div class="blog">
-
-<h3>Future Goals</h3>
-
-<p>
-I want to learn CSS, JavaScript, and advanced web technologies
-to build more interactive websites.
-</p>
-
-</div>
-
+<section id="blog">
+  <h2>Blog</h2>
+  <div class="blog">
+    <h3>My Journey Learning HTML</h3>
+    <p>Learning HTML helped me understand how websites are built and structured in neon, cinematic styles.</p>
+  </div>
+  <div class="blog">
+    <h3>Future Goals</h3>
+    <p>Learning HTML helped me understand how websites are built and structured.
+       It inspired me to continue learning programming and design.</p>
+  </div>
 </section>
 
-<!-- CONTACT -->
-
-<section id="contact" class="contact fade">
-
-<h2>Contact</h2>
-
-<p>Email: abcoronel719@gmail.com</p>
-<p>Facebook: facebook.com/angelo071998</p>
-<p>Location: Philippines</p>
-
+<section id="contact">
+  <h2>Contact</h2>
+  <p class="contact-info">Email: <a href="mailto: abcoronel719@gmail.com">your@email.com</a></p>
+  <p class="contact-info">Facebook: <a href="https://facebook.com/angelo071998" target="_blank">facebook.com/angelo071998</a></p>
 </section>
 
 <footer>
-
-<p>© 2026 My Portfolio</p>
-
+  <p>© 2026 Stranger Portfolio</p>
 </footer>
-
-<!-- TYPING EFFECT -->
-
-<script>
-
-const text="I am learning Web Development and building modern websites.";
-
-let i=0;
-
-function typing(){
-
-if(i<text.length){
-
-document.getElementById("typing").innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(typing,50);
-
-}
-
-}
-
-typing();
-
-</script>
 
 </body>
 </html>
