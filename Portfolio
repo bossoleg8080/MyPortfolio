@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Personal Portfolio</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+            background:#f4f4f4;
+        }
+
+        header{
+            background:#333;
+            color:white;
+            padding:20px;
+            text-align:center;
+        }
+
+        nav{
+            background:#555;
+            padding:10px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            margin:10px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        section{
+            padding:40px;
+            background:white;
+            margin:20px;
+            border-radius:10px;
+        }
+
+        img{
+            max-width:200px;
+            border-radius:10px;
+        }
+
+        footer{
+            text-align:center;
+            padding:20px;
+            background:#333;
+            color:white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>My Portfolio</h1>
+    <p>Welcome to my personal website</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+
+    <img src="profile.jpg" alt="My Profile Picture">
+
+    <p>
+        Hello! My name is [Your Name]. I am a student learning web development.
+        I enjoy creating websites using HTML, CSS, and learning new technology.
+    </p>
+</section>
+
+<section id="projects">
+    <h2>My Projects</h2>
+
+    <h3>Project 1: Simple Website</h3>
+    <img src="project1.png">
+    <p>This is a website I created using HTML.</p>
+
+    <h3>Project 2: School Activity</h3>
+    <img src="project2.png">
+    <p>This project shows my skills in designing a webpage.</p>
+
+</section>
+
+<section id="blog">
+    <h2>Blog</h2>
+
+    <h3>My Journey in Learning HTML</h3>
+    <p>
+        Learning HTML was fun and challenging. I discovered how websites are built
+        and how design works.
+    </p>
+
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+
+    <p>Email: yourname@email.com</p>
+    <p>Facebook: facebook.com/yourname</p>
+
+</section>
+
+<footer>
+    <p>© 2026 My Portfolio</p>
+</footer>
+
+</body>
+</html>
